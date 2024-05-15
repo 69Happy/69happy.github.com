@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=initial-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>My Gallery</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+           .h1 {
+                font-size: 40px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: normal;
+                padding: 15px;
+                color: white;
+                text-align: center;
+            }
+            .container {
+                position: relative;
+                min-height: 100vh;
+                background: black;
+                margin-top: 5px;
+            }
+            .container h2{
+                font-size: 40px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: normal;
+                padding: 15px;
+                color: white;
+                text-align: center;
+                margin-top: 1px;
+                color: #de05e9;
+            }
+            .container p{
+                font-size: 15px;
+                text-align: center;
+            }
+            .container .image-container{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+                padding: 10px;
+            }
+            .container .image-container .image{
+                height: 250px;
+                width: 250px;
+                border: 10px solid #151515;
+                box-shadow: 0px 5px 15px rgba(0,0,0,.1);
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .container .image-container .image img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                transition: 0.2s linear;
+            }
+            .container .image-container .image:hover img{
+                transform: scale(1.1);
+            }
+            .popup-image{
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: rgba(0,0,0,.9);
+                height: 100%;
+                width: 100%;
+                z-index: 100;
+                display: none;
+            }
+            .popup-image span{
+                position: absolute;
+                top: 0;
+                right: 10px;
+                font-size: 60px;
+                font-weight: bolder;
+                color: white;
+                cursor: pointer;
+                z-index: 100;
+            }
+            .popup-image img{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: 5px solid #151515;
+                border-radius: 5px;
+                width: 750px;
+                object-fit: cover;
+            }
+            @media (max-width:768px){
+                .popup-image img{
+                    width: 95%;
+                }
+            }
+            .btn {
+    display: inline-block;
+    padding: 0.5rem 2.5rem;
+    background: var(--main-color);
+    border-radius: 2rem;
+    font-size: 2rem;
+    color: white;
+    border: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    color: black;
+}
+        </style>
+    </head>
+    <body>
+        <h1 class="heading">My Gallery</h1>
+        <div class="container">
+            
+            <h2>My Pictures</h2>
+            <p>Here are some of my pictures. Some of them is when I was a senior high school student and some of is during our fisrt semester.</p>
+            <div class="image-container">
+                <div class="image"><img src="HJB1.jpg" alt="HJB1">
+                    <h3>Photo Taken On Oct. 2020</h3>
+                </div>
+                <div class="image"><img src="HJB10.jpg" alt="HJB2">
+                    <p>Photo Taken On Oct. 2020</p>
+                </div>
+                <div class="image"><img src="HJB11.jpg" alt="HJB3"></div>
+                <div class="image"><img src="HJB4.jpg" alt="HJB4"></div>
+                <div class="image"><img src="HJB12.jpg" alt="HJB5"></div>
+                <div class="image"><img src="HJB6.jpeg" alt="HJB6"></div>
+            </div>
+        </div>
+       
+        <div class="container">
+            
+            <h2>My Masterpieces</h2>
+            <p>Here are some of my masterpieces that I created using Photoshop during our first semester.</p>
+            <div class="image-container">
+                <div class="image"><img src="master1.jpg" alt="master1"></div>
+                <div class="image"><img src="master2.jpg" alt="master2"></div>
+                <div class="image"><img src="master3.jpg" alt="master3"></div>
+                <div class="image"><img src="master4.jpg" alt="master4"></div>
+                <div class="image"><img src="master5.jpg" alt="master5"></div>
+                <div class="image"><img src="master6.jpg" alt="master6"></div>
+            </div>
+        </div>
+
+        <div class="container">
+
+        <h2>My Artworks</h2>
+        <p>One of favorite hobby is drawing, which I always do when I have free time. Here are some of my artwork.</p>
+            <div class="image-container">
+                <div class="image"><img src="draw1.jpg" alt="art1"></div>
+                <div class="image"><img src="draw2.jpg" alt="art2"></div>
+                <div class="image"><img src="draw3.jpg" alt="art3"></div>
+                
+            </div>
+             <a href="Index.html" class="btn">Back</a>
+        </div>
+       
+        
+        <div class="popup-image">
+            <span>&times;</span>
+            <img src="HJB1.jpg" alt="HJB1">
+        </div>
+       
+
+        <script>
+            document.querySelectorAll('.image-container img').forEach(image =>{
+            image.onclick = () =>{
+                document.querySelector('.popup-image').style.display = 'block';
+                document.querySelector('.popup-image img').src = image.getAttribute('src');
+            }
+            });
+
+            document.querySelector('.popup-image span').onclick = () =>{
+                document.querySelector('.popup-image').style.display = 'none';
+            }
+        </script>
+
+
+
+    </body>
+</html>
